@@ -29,6 +29,10 @@ public class YandexMarket {
 
     private String selectorForSubmenu = "//div[@class = '_1FXJE' and contains(.,'toChange')]";
 
+    private String selectorForMenu = "//a[@class = 'egKyN _2jA_3 _44GlG' and contains(.,'toChange')]";
+
+
+
 
     private List<WebElement> sourceOfGoods = new ArrayList<>();
 
@@ -89,8 +93,16 @@ public class YandexMarket {
         toClick.click();
     }
 
+
+
     public void clickOnItemInSubmenu(String itemToClickInCatalog){
         String itemToClick = selectorForSubmenu.replace("toChange", itemToClickInCatalog);
+        WebElement toClick = driver.findElement(By.xpath(itemToClick));
+        toClick.click();
+    }
+
+    public void clickOnItemInMenu(String itemToClickInCatalog){
+        String itemToClick = selectorForMenu.replace("toChange", itemToClickInCatalog);
         WebElement toClick = driver.findElement(By.xpath(itemToClick));
         toClick.click();
     }

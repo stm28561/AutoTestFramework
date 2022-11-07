@@ -4,11 +4,9 @@ package ui.yandex;
 import helpers.CustomUtils;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import pages_yandex.*;
-import steps.Steps;
 
 
 public class TestForLeague extends BaseTests{
@@ -22,7 +20,7 @@ public class TestForLeague extends BaseTests{
     public void  leagueTestTask() throws InterruptedException {
         Allure.step("1. Зайти на Яндекс маркет", stepContext -> {
             CustomUtils.openPage(chromeDriver, yandexMarketUrl);
-            //Необходимо рефакторить, создать класс Webdriver manager и в BeforeStepStop организовать скриншоты
+            //Необходимо рефакторить, создать класс Webdriver manager и в BeforeStep организовать скриншоты
             CustomUtils.getScreen(chromeDriver);
         });
         Allure.step("2. Выбрать раздел Электроника - > Телевизоры", stepContext -> {
@@ -30,7 +28,7 @@ public class TestForLeague extends BaseTests{
             yandexMarket.clickOnCatalog();
             yandexMarket.clickOnItemInCatalog("Электроника");
             yandexMarket.clickOnInItemInElectronics("3");
-            yandexMarket.clickOnItemInSubmenu("Телевизоры");
+            yandexMarket.clickOnItemInMenu("Телевизоры");
             CustomUtils.getScreen(chromeDriver);
         });
         Allure.step("3. Задать параметр поиска:\n" +
